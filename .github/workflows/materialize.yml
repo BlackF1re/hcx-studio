@@ -57,3 +57,5 @@ jobs:
           git add -A
           git commit -m "chore: materialize HCX Studio 0.2.0"
           git push origin HEAD:agent/publish-product
+
+# retriggered after repository verification
