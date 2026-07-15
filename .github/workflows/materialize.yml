@@ -3,6 +3,8 @@ name: Materialize repository
 on:
   push:
     branches: [agent/publish-product]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -21,6 +23,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: agent/publish-product
 
       - name: Expand verified source archive
         shell: bash
@@ -57,5 +60,3 @@ jobs:
           git add -A
           git commit -m "chore: materialize HCX Studio 0.2.0"
           git push origin HEAD:agent/publish-product
-
-# retriggered after repository verification
